@@ -31,16 +31,7 @@ $ php artisan publish:vendor
   
   
 ### Add this in your controller :
-        $this->crud->setListView('myvendor::modal.list');
-
-        $this->crud->modifyButton('update',[
-            'content' => 'myvendor::buttons.update',
-        ]);
-
-### Create route to function of trait Show in custom.php:
-        Route::get('user/add', 'UserCrudController@create'); // Create {{ user}} route
-        Route::get('user/update/{id}', 'UserCrudController@edit'); // Update {{ user }} route
-        CRUD::resource('user','UserCrudController');
+        $this->setView;
         
 ## Change log
 
