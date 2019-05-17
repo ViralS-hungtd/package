@@ -27,6 +27,7 @@ $ php artisan publish:vendor
   class YourCrudController extends CrudController
   {
     use Show;
+  }
   
   
 ### Add this in your controller :
