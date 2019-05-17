@@ -2,13 +2,14 @@ $(document).ready(function(){
     $(document).on('click', '#showCreateModal', function(){
         var id = $(this).attr("data-id");
         var token = $("meta[name='csrf-token']").attr("content");
+
         $.ajax({
-            url: url +'/add/',
+            url: url +'/create',
             type: 'GET',
             data: {
                 "id": id,
                 "_token": token,
-                "errors": errors
+                "errors": errors,
             },
             success:function(data){
                 $(".includeModal").html(data);

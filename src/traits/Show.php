@@ -21,4 +21,14 @@ trait Show
         $fields = $this->crud->getUpdateFields($id);
         return view('myvendor::modal.modal_edit', compact('crud', 'entry', 'fields', 'saveAction'));
     }
+
+    public function setView()
+    {
+        $this->crud->setListView('myvendor::modal.list');
+        $this->crud->setCreateView('myvendor::modal.modal_create');
+        $this->crud->setCreateView('myvendor::modal.modal_edit');
+        $this->crud->modifyButton('update',[
+            'content' => 'myvendor::buttons.update',
+        ]);
+    }
 }
