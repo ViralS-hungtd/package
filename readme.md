@@ -15,8 +15,32 @@ Via Composer
 $ composer require myvendor/mypackage
 ```
 
-## Usage
+## How to Use
+### publish vendor :
+$ php artisan publish:vendor
 
+### Use trait Show in your controller :
+  namespace App\Http\Controllers\Admin;
+  
+  use MyVendor\MyPackage\Traits\Show;
+  
+  class YourCrudController extends CrudController
+  {
+    use Show;
+  
+  
+### Add this in your controller :
+        $this->crud->setListView('myvendor::modal.list');
+
+        $this->crud->modifyButton('update',[
+            'content' => 'myvendor::buttons.update',
+        ]);
+
+### Create route to function of trait Show in custom.php:
+        Route::get('user/add', 'UserCrudController@create'); // Create {{ user}} route
+        Route::get('user/update/{id}', 'UserCrudController@edit'); // Update {{ user }} route
+        CRUD::resource('user','UserCrudController');
+        
 ## Change log
 
 Please see the [changelog](changelog.md) for more information on what has changed recently.
